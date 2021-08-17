@@ -2,5 +2,5 @@ package edu.escuelaing.arem.sparkprimer.persistencia;
 
 public interface SparkPrimerPersistence {
 
-    void getDatesSparkPrimer();
+    StringBuffer getDatesSparkPrimer(String identificador);
 }
