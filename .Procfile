@@ -1,1 +1,0 @@
-web: java -jar target/SparkWebApp-1.0-SNAPSHOT.jar
