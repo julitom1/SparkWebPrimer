@@ -19,6 +19,7 @@ public class App
     public static void main( String[] args )
     {
         port(getPort());
+        get("/hello", (req, res) -> "Hello Heroku World");
 		get("/Facadea", (req, res) -> facadeAlpha(req,res));
 		get("/Cloud",(req,res) -> getCloud(req,res));
 
