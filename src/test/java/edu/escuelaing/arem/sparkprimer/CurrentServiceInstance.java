@@ -6,7 +6,6 @@ import edu.escuelaing.arem.sparkprimer.service.HttpConnectionSpark;
 public class CurrentServiceInstance {
     private static CurrentServiceInstance iceInstance=new CurrentServiceInstance() ;
     private HttpConnectionSpark service;
-    
     private CurrentServiceInstance(){
         service = new AlphaHttpStockService();
     }

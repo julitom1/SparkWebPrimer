@@ -18,14 +18,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        port(getPort());
+       // port(getPort());
         get("/hello", (req, res) -> "Hello Heroku World");
 	/**	get("/Facadea", (req, res) -> facadeAlpha(req,res));
 		get("/Cloud",(req,res) -> getCloud(req,res));*/
 
     }
 
-    /**private static String getCloud(Request req, Response res) {
+    private static String getCloud(Request req, Response res) {
         res.type("application/json");
         String response="None";
         HttpConnectionSpark stockService=CurrentServiceInstance.getInstance().getServiceCloud();
@@ -63,12 +63,12 @@ public class App
         }
         return response;
 
-    }*/
+    }
 
-    public static int getPort(){
+   /** public static int getPort(){
         if(System.getenv("PORT") != null){
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 4567;
-    }
+    }**/
 }
