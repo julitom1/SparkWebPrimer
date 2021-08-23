@@ -1,1 +1,1 @@
-web: java -jar target/SparkWebApp-1.0-SNAPSHOT.jar
+web: java -cp target/SparkWebApp-1.0-SNAPSHOT-jar-with-dependencies.jar edu.escuelaing.arem.sparkprimer.App
