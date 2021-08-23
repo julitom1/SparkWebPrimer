@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arem.app.App -Dserver.port=$PORT
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arem.sparkprimer.App -Dserver.port=$PORT
