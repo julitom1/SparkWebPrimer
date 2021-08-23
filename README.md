@@ -14,6 +14,7 @@ https://github.com/julitom1/frontSpark
 
 ## Descripción
 
+Este microservicio es para pedir datos a diferentes direcciones url
 
 ## Diseño
 
@@ -33,7 +34,27 @@ Son HashMapConcurrent que mantienen datos guardados de las query que se hayan he
 
 ## Extensibilidad
 
-Esta API es fácil de extender
+Esta API es fácil de extenderse o agregarse una nueva url, consiste en 4 pasos:
+
+1. En la clase CurrentServiceInstance agregar una variable de tipo HttpConnectionSpark, crear su respectivo getter e iniciarla en el metodo constructor.
+
+![](imgs/Paso1.JPG)
+
+2. Crear un metodo en la clase sparkWeb que pida el getter creado en el anterior paso
+
+![](imgs/Paso2.JPG)
+
+3. .Agregar en el main de la clase sparkWeb, la dirección con la que quiere que quede vinculada esa url y que llame al metodo creado en el paso anterior.
+
+![](imgs/Paso3.JPG)
+
+4. Crear una nueva clase que extienda de HttpConnectionSpark y que retorne la url deseada
+
+![](imgs/Paso4.JPG)
+
+y ya quedara vinculada con la aplicación
+
+![](imgs/Paso5.JPG)
 
 ## Autor
 
