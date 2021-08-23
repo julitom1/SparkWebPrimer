@@ -10,7 +10,7 @@ import java.io.IOException;
 import static spark.Spark.*;
 
 
-public class App {
+public class sparkWeb {
     public static void main( String[] args )
     {
         port(getPort());
@@ -18,7 +18,7 @@ public class App {
             response.header("Access-Control-Allow-Origin", "*");
             response.header("Access-Control-Allow-Methods", "GET");
         });
-        get("/hello", (req, res) -> "Hello Heroku World");
+        
 		get("/Facadea", (req, res) -> facadeAlpha(req,res));
 		get("/Cloud",(req,res) -> getCloud(req,res));
 

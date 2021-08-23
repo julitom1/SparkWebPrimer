@@ -8,7 +8,8 @@ public class AlphaHttpStockService extends HttpConnectionSpark {
     protected String stock1;
     protected String stock2;
     protected String stock3;
-
+    protected final String url="https://www.alphavantage.co/query";
+    
     private final ConcurrentHashMap<String,String> memoriaAlpha=new ConcurrentHashMap<>();
     private String tupla;
 
@@ -61,7 +62,7 @@ public class AlphaHttpStockService extends HttpConnectionSpark {
 
     public String getUrl(){
 
-        return "https://www.alphavantage.co/query?function=TIME_SERIES_"+stock2+"&symbol="+stock1+"&apikey=QBFKS0D0AQB3IPK2";
+        return url;
     }
 
 
