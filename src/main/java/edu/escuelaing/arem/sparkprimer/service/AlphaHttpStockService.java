@@ -36,8 +36,7 @@ public class AlphaHttpStockService extends HttpConnectionSpark {
         TimerTask tiempoEnCache = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("========");
-                System.out.println(eliminar);
+        
                 memoriaAlpha.remove(eliminar);
             }
         };

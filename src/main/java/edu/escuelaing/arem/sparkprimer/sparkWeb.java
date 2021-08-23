@@ -9,8 +9,19 @@ import java.io.IOException;
 
 import static spark.Spark.*;
 
+/**
+ * 
+ * @author yarit
+ *
+ */
 
 public class sparkWeb {
+	private static final CurrentServiceInstance instance = CurrentServiceInstance.getInstance();
+	
+	/**
+	 * Inicio y preparación de la aplicación
+	 * @param args
+	 */
     public static void main( String[] args )
     {
         port(getPort());
@@ -24,16 +35,28 @@ public class sparkWeb {
 
     }
 
+    /**
+     * Trabaja con la clase iexCloudHttpStockService
+     * @param req contendrá información de la petición
+     * @param res contendrá información sobre la respuesta del server
+     * @return Devuelve un Json de la url solicitada
+     */
     private static String getCloud(Request req, Response res) {
         res.type("application/json");
         String response="None";
-        HttpConnectionSpark stockService=CurrentServiceInstance.getInstance().getServiceCloud();
+        HttpConnectionSpark stockService=instance.getServiceCloud();
 
         return response(stockService);
 
     }
 
-
+    /**
+     * Trabaja con la clase AlphaHttpStockService
+     * @param req contendrá información de la petición
+     * @param res contendrá información sobre la respuesta del server
+     * @return Devuelve un Json de la url solicitada
+     */ 
+    
     private static String facadeAlpha(Request req, Response res) {
         res.type("application/json");
         String stock=req.queryParams("simbolo");
@@ -41,7 +64,7 @@ public class sparkWeb {
         String interval=req.queryParams("intervalo");
         HttpConnectionSpark stockService;
         if(interval!="" && interval!=null){
-            stockService=CurrentServiceInstance.getInstance().getServiceWithInterval();
+            stockService=instance.getServiceWithInterval();
             stockService.setStock3(interval);
         }else {
             stockService = CurrentServiceInstance.getInstance().getService();
@@ -52,6 +75,12 @@ public class sparkWeb {
 
         return response(stockService);
     }
+    
+    /**
+     *  Hace la conexión con la clase abstracta HttpConectionSpark
+     * @param stockService Es el tipo de servicio que se va a manejar
+     * @return Devuelve los datos de la url solicitada
+     */
     private static String response(HttpConnectionSpark stockService){
         String response="None";
         try {
@@ -64,6 +93,10 @@ public class sparkWeb {
 
     }
 
+    /**
+     * Obtener un puerto
+     * @return Devuelve un puerto
+     */
     public static int getPort(){
         if(System.getenv("PORT") != null){
             return Integer.parseInt(System.getenv("PORT"));

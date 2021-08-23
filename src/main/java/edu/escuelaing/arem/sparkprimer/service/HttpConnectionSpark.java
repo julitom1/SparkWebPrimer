@@ -11,10 +11,14 @@ public abstract class HttpConnectionSpark {
 
     private static final String USER_AGENT = "Mozilla/5.0";
 
-
+    /**
+     *  Hace conexión con la API externa que se le indico
+     * @return Devuelve los datos de esa API externa
+     * @throws IOException
+     */
     public String getFBData() throws IOException {
 
-
+    	
         String responseStr=obtenerResultadoPorMemoria();
         if(responseStr.equals("") || responseStr.equals(null)) {
             System.out.println("No Memoria");
@@ -49,13 +53,25 @@ public abstract class HttpConnectionSpark {
         }
         return responseStr;
     }
-
+    /**
+     * 
+     * @return Obtiene una url
+     */
     public abstract String getUrl();
 
+    /**
+     * 
+     * @return Devuelve un resultado guardada en la Cache
+     */
     public abstract String obtenerResultadoPorMemoria();
 
+    /**
+     *  Guarda en la cache un dato.
+     * @param rta Lo que se va a guardad como valor en la memoria
+     */
     public abstract void guardarEnCache(String rta);
 
+    
     public abstract void setStock1(String stock);
     public abstract void setStock2(String stock);
     public abstract void setStock3(String stock);

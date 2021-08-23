@@ -14,7 +14,9 @@ public class CurrentServiceInstance {
 
 
 
-
+    /**
+     * Constructor
+     */
     private CurrentServiceInstance(){
         serviceNormal=new AlphaHttpStockServiceNormal();
         serviceWithInterval=new AlphaHttpStockServiceWithInterval();
@@ -23,17 +25,32 @@ public class CurrentServiceInstance {
 
 
     }
-
+    /**
+     *
+     * @return Devuelve esta clase
+     */
     public static CurrentServiceInstance getInstance(){
         return instance;
     }
 
+    /**
+     * 
+     * @return Devuelve la clase serviceNormal con tipo HttpConnectionSpark
+     */
     public HttpConnectionSpark getService(){
         return serviceNormal;
     }
+    /**
+     * 
+     * @return Devuelve la clase serviceWithInterval con tipo HttpConnectionSpark
+     */
     public HttpConnectionSpark getServiceWithInterval(){
         return serviceWithInterval;
     }
+    /**
+     * 
+     * @return Devuelve la clase getServiceCloud con tipo HttpConnectionSpark
+     */
     public HttpConnectionSpark getServiceCloud(){return serviceCloud;}
 }
 
