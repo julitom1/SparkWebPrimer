@@ -27,9 +27,13 @@ https://github.com/julitom1/frontSpark
 
 ## Memoria Cache
 
-Son HashMapConcurrent que mantienen un dato guardado durante 5 minutos, después de haberlo pedido a la API externa, pasado los 5 minutos lo eliminan
+Son HashMapConcurrent que mantienen datos guardados de las query que se hayan hecho, cuando se guarda un dato este dura en la cache durante 5 minutos, luego de ello, se borra de la cache (Esto es por si actualizan la API externa).
+
+![](imgs/memoriaCache.JPG)
 
 ## Extensibilidad
+
+Esta API es fácil de extender
 
 ## Autor
 
