@@ -4,7 +4,7 @@ package edu.escuelaing.arem.sparkprimer;
 import edu.escuelaing.arem.sparkprimer.service.HttpConnectionSpark;
 import spark.Request;
 import spark.Response;
-
+import spark.Filter;
 import java.io.IOException;
 
 import static spark.Spark.*;
@@ -14,6 +14,10 @@ public class App {
     public static void main( String[] args )
     {
         port(getPort());
+        after((Filter) (request, response) -> {
+            response.header("Access-Control-Allow-Origin", "*");
+            response.header("Access-Control-Allow-Methods", "GET");
+        });
         get("/hello", (req, res) -> "Hello Heroku World");
 		get("/Facadea", (req, res) -> facadeAlpha(req,res));
 		get("/Cloud",(req,res) -> getCloud(req,res));
