@@ -13,7 +13,7 @@ import static spark.Spark.*;
 public class App {
     public static void main( String[] args )
     {
-       // port(getPort());
+        port(getPort());
         get("/hello", (req, res) -> "Hello Heroku World");
 		get("/Facadea", (req, res) -> facadeAlpha(req,res));
 		get("/Cloud",(req,res) -> getCloud(req,res));
@@ -60,10 +60,10 @@ public class App {
 
     }
 
-    /**public static int getPort(){
+    public static int getPort(){
         if(System.getenv("PORT") != null){
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 4567;
-    }**/
+    }
 }
